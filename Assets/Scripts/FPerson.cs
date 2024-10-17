@@ -24,8 +24,13 @@ public class FPerson : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 Movimiento = new Vector3(h,0,v).normalized;
-        float anguloRotacion = Camera.main.transform.eulerAngles.y;
+        float anguloRotacion = Mathf.Atan2(Movimiento.x, Movimiento.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
         
-        controller.Move(Movimiento * velocidadMovimiento * Time.deltaTime);
+        if (Movimiento.magnitude > 0)
+        {
+
+            transform.eulerAngles = new Vector3(0, anguloRotacion,0);
+            controller.Move(Movimiento * velocidadMovimiento * Time.deltaTime);
+        }
     }
 }
