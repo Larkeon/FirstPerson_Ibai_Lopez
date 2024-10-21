@@ -33,7 +33,7 @@ public class ThirdPerson : MonoBehaviour
         
             float anguloRotacion = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
 
-            float anguloSuave = Mathf.SmoothDampAngle(transform.rotation.eulerAngles.y, anguloRotacion, ref velocidadRotacion, smoothTimer);
+            float anguloSuave = Mathf.SmoothDampAngle(transform.eulerAngles.y, anguloRotacion, ref velocidadRotacion, smoothTimer);
             
             transform.eulerAngles = new Vector3(0,anguloSuave,0);
            
