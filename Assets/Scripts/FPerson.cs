@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class FPerson : MonoBehaviour
 {
+    [Header ("Movimiento")]
     [SerializeField] private float velocidadMovimiento;
+    [SerializeField] private float factorGravedad;
+
+    [Header ("Deteccion Suelo")]
+    [SerializeField] private float radioDeteccion;
+    [SerializeField] private Transform pies;
+    [SerializeField] private LayerMask queEsSuelo;
     CharacterController controller;
+    private Vector3 movimientoVertical;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +25,8 @@ public class FPerson : MonoBehaviour
     void Update()
     {
         MoverYRotar();
+        AplicarGravedad();
+        EnSuelo();
     }
     void MoverYRotar()
     {
@@ -37,5 +47,17 @@ public class FPerson : MonoBehaviour
 
             controller.Move(movimiento * velocidadMovimiento * Time.deltaTime);
         }
+    }
+
+    private void AplicarGravedad()
+    {
+        movimientoVertical.y += factorGravedad * Time.deltaTime;
+        controller.Move(movimientoVertical * Time.deltaTime);
+    }
+
+    private bool EnSuelo()
+    {
+        bool resultado = Physics.CheckSphere(pies.position, radioDeteccion, queEsSuelo);
+        return resultado;
     }
 }

@@ -8,11 +8,13 @@ public class ThirdPerson : MonoBehaviour
     CharacterController controller;
     [SerializeField] float smoothTimer;
     float velocidadRotacion;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,13 @@ public class ThirdPerson : MonoBehaviour
             Vector3 movimiento = Quaternion.Euler(0,anguloRotacion,0) * Vector3.forward;
 
             controller.Move(movimiento * velocidadMovimiento * Time.deltaTime);
+
+            anim.SetBool("walking", true);
+        }
+
+        else
+        {
+            anim.SetBool("walking", false);
         }
     }
 }
