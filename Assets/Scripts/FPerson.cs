@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class FPerson : MonoBehaviour
     [Header ("Movimiento")]
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private float factorGravedad;
+    [SerializeField] private float alturaSalto;
 
     [Header ("Deteccion Suelo")]
     [SerializeField] private float radioDeteccion;
@@ -19,15 +21,31 @@ public class FPerson : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
         MoverYRotar();
+
         AplicarGravedad();
-        EnSuelo();
+
+        if (EnSuelo())
+        {
+            movimientoVertical.y = 0;
+            Saltar();
+        }
     }
+
+    private void Saltar()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            movimientoVertical.y = Mathf.Sqrt(-2*factorGravedad*alturaSalto);
+        }
+    }
+
     void MoverYRotar()
     {
         float h = Input.GetAxisRaw("Horizontal");
@@ -36,10 +54,10 @@ public class FPerson : MonoBehaviour
         Vector3 input = new Vector3(h,v,0).normalized;
         
         float anguloRotacion = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-        
-        transform.eulerAngles = new Vector3(0,anguloRotacion,0);
 
-        if (input.magnitude > 0)
+        transform.rotation = Quaternion.Euler(0, anguloRotacion, 0);
+
+        if (h != 0 || v != 0)
         {
         
            
@@ -59,5 +77,10 @@ public class FPerson : MonoBehaviour
     {
         bool resultado = Physics.CheckSphere(pies.position, radioDeteccion, queEsSuelo);
         return resultado;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(pies.position, radioDeteccion);
     }
 }
