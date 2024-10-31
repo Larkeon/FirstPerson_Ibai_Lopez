@@ -778,6 +778,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prisoner B Styperek
       objectReference: {fileID: 0}
+    - target: {fileID: 4558968900374574667, guid: 4c25372d8a6186142a7f10c45aa976d4,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558968900374574667, guid: 4c25372d8a6186142a7f10c45aa976d4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1065,7 +1075,7 @@ Transform:
   m_GameObject: {fileID: 1365317656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.23, y: 114.6, z: 11.04}
+  m_LocalPosition: {x: 13.23, y: 100.8, z: 11.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1204,7 +1214,7 @@ Transform:
   m_GameObject: {fileID: 1729128724}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24072741, y: -0.5590907, z: 0.17387067, w: 0.77410406}
-  m_LocalPosition: {x: 13.23, y: 114.991, z: 11.0199995}
+  m_LocalPosition: {x: 13.23, y: 101.191, z: 11.0199995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1362,8 +1372,8 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 83945477}
-  - {fileID: 1729128725}
   - {fileID: 1365317660}
   - {fileID: 453396334}
   - {fileID: 102772291}
   - {fileID: 687534734}
+  - {fileID: 1729128725}
