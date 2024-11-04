@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 645462027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,16 +778,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prisoner B Styperek
       objectReference: {fileID: 0}
-    - target: {fileID: 4558968900374574667, guid: 4c25372d8a6186142a7f10c45aa976d4,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: Infinity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4558968900374574667, guid: 4c25372d8a6186142a7f10c45aa976d4,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -851,7 +841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955329451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SystemCameras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +999,7 @@ GameObject:
   - component: {fileID: 1365317661}
   - component: {fileID: 1365317663}
   - component: {fileID: 1365317662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,6 +1094,7 @@ MonoBehaviour:
   queEsSuelo:
     serializedVersion: 2
     m_Bits: 8
+  vidas: 100
 --- !u!143 &1365317662
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1166,7 +1157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397346232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ojos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1263,7 @@ GameObject:
   - component: {fileID: 1813390947}
   - component: {fileID: 1813390946}
   - component: {fileID: 1813390945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ojitos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,6 +17,8 @@ public class FPerson : MonoBehaviour
     CharacterController controller;
     private Vector3 movimientoVertical;
 
+    [SerializeField] float vidas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,9 +80,14 @@ public class FPerson : MonoBehaviour
         bool resultado = Physics.CheckSphere(pies.position, radioDeteccion, queEsSuelo);
         return resultado;
     }
+    public void RecibirDanho(float danhoEnemigo)
+    {
+        vidas -= danhoEnemigo;
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pies.position, radioDeteccion);
     }
+
 }
