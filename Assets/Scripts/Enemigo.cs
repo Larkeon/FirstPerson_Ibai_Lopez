@@ -17,6 +17,8 @@ public class Enemigo : MonoBehaviour
     [SerializeField] float radio;
     [SerializeField] LayerMask Ataque;
 
+    Rigidbody[] huesos;
+
     bool ventanaAbierta;
     bool puedoDanhar = true;
 
@@ -26,6 +28,12 @@ public class Enemigo : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindObjectOfType<FPerson>();
         anim = GetComponent<Animator>();
+        huesos = GetComponentsInChildren<Rigidbody>();
+
+        for (int i = 0; i < huesos.Length; i++)
+        {
+            huesos[i].isKinematic = true;
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +44,7 @@ public class Enemigo : MonoBehaviour
         {
             DetectarImpacto();
         }
+        
     }
 
     private void DetectarImpacto()
@@ -63,6 +72,16 @@ public class Enemigo : MonoBehaviour
 
             anim.SetBool("attack", true);
         }
+        if (agent.remainingDistance > agent.stoppingDistance)
+        {
+            agent.isStopped = false;
+
+            anim.SetBool("attack", false);
+            
+            agent.SetDestination(player.transform.position);
+        }
+
+        
     }
 
     private void FinAtaque()
