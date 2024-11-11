@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArmaSemiAuto : MonoBehaviour
 {
     [SerializeField] ArmaSO misDatos;
-    [SerializeField] ParticleSystem system;
+    //[SerializeField] ParticleSystem system;
 
     private Camera cam;
 
@@ -20,10 +20,13 @@ public class ArmaSemiAuto : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            system.Play();
+           // system.Play();
             if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, misDatos.distanciaAtaque))
             {
-
+                if (hitInfo.transform.CompareTag("ParteEnemigo"))
+                {
+                    //hitInfo.transform.GetComponent<ParteDeEnemigo>().RecibirDanho(misDatos.danhoAtaque);
+                }
             } 
         }
     }

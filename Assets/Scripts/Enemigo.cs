@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Video;
 
 public class Enemigo : MonoBehaviour
 {
@@ -17,10 +18,14 @@ public class Enemigo : MonoBehaviour
     [SerializeField] float radio;
     [SerializeField] LayerMask Ataque;
 
+    float vidas = 4;
+
     Rigidbody[] huesos;
 
     bool ventanaAbierta;
     bool puedoDanhar = true;
+
+    public float Vidas { get => vidas; set => vidas = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +89,14 @@ public class Enemigo : MonoBehaviour
         
     }
 
+    private void CambiarEstadoHuesos(bool estado)
+    {
+        for(int i = 0;i < huesos.Length;i++)
+        {
+            huesos[i].isKinematic = true;
+        }
+    }
+
     private void FinAtaque()
     {
         agent.isStopped = false;
@@ -101,5 +114,12 @@ public class Enemigo : MonoBehaviour
     private void CerrarVentanaAtaque()
     {
         ventanaAbierta = false;
+    }
+
+    public void Morir()
+    {
+        CambiarEstadoHuesos(false);
+        anim.enabled = false;
+        agent.enabled = false;
     }
 }
