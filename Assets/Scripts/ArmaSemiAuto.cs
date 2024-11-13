@@ -13,6 +13,7 @@ public class ArmaSemiAuto : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        misDatos.danhoAtaque = 1f;
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class ArmaSemiAuto : MonoBehaviour
             {
                 if (hitInfo.transform.CompareTag("ParteEnemigo"))
                 {
-                    //hitInfo.transform.GetComponent<ParteDeEnemigo>().RecibirDanho(misDatos.danhoAtaque);
+                    hitInfo.transform.GetComponent<ParteDeEnemigo>().RecibirDanho(misDatos.danhoAtaque);
                 }
             } 
         }

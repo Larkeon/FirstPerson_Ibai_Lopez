@@ -49,6 +49,10 @@ public class Enemigo : MonoBehaviour
         {
             DetectarImpacto();
         }
+        if(vidas <= 0)
+        {
+            Morir();
+        }
         
     }
 
@@ -122,4 +126,6 @@ public class Enemigo : MonoBehaviour
         anim.enabled = false;
         agent.enabled = false;
     }
+
+
 }

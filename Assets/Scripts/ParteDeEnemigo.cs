@@ -6,7 +6,7 @@ public class ParteDeEnemigo : MonoBehaviour
 {
     [SerializeField] Enemigo mainScript;
     [SerializeField] float multiplicadorDanho;
-    private void RecibirDanho(float danhoRecibido)
+    public void RecibirDanho(float danhoRecibido)
     {
         mainScript.Vidas -= danhoRecibido * multiplicadorDanho;
         
